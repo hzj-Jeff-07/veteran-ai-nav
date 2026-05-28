@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>退役军人 AI 学习导航站 | 从零到 AI 安全的可信路径图</title>
+  <meta name="description" content="为退役军人量身定制的 AI 自学路径图与精选资源导航。零基础到 AI 安全工程师,免费资源优先,反内卷反割韭菜。" />
+  <meta name="keywords" content="退役军人,AI 学习,人工智能,转行,网络安全,AI 安全,Python,自学路径" />
+  <meta name="author" content="龙渊 / 黄焌哲" />
+
+  <meta property="og:title" content="退役军人 AI 学习导航站" />
+  <meta property="og:description" content="从零到 AI 安全的可信路径图,免费资源优先" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hzj-Jeff-07.github.io/veteran-ai-nav/" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://hzj-Jeff-07.github.io/veteran-ai-nav/" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0f1714',
+            army: {
+              50: '#f3f6f3',
+              100: '#e3ebe3',
+              500: '#4a6b4a',
+              600: '#3a5a3a',
+              700: '#2c4a2c',
+              800: '#1f3520',
+              900: '#142318',
+            },
+            sand: {
+              50: '#faf8f3',
+              100: '#f3eedf',
+              200: '#e6dcc0',
+              500: '#b8a274',
+            }
+          },
+          fontFamily: {
+            mono: ['ui-monospace', 'SFMono-Regular', 'Consolas', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    .stamp {
+      font-family: ui-monospace, monospace;
+      letter-spacing: 0.15em;
+    }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(74,107,74,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,107,74,0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .stage-line::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -1.5rem;
+      width: 1.5rem;
+      height: 2px;
+      background: linear-gradient(90deg, #4a6b4a, transparent);
+    }
+    @media (max-width: 768px) {
+      .stage-line::after { display: none; }
+    }
+  </style>
+</head>
+<body class="bg-sand-50 text-ink antialiased">
+
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-sand-50/85 border-b border-army-100">
+    <div class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2">
+        <span class="w-7 h-7 rounded-sm bg-army-700 text-sand-50 grid place-items-center text-xs font-bold stamp">退</span>
+        <span class="font-semibold text-army-800">退役军人 AI 导航</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm text-army-700">
+        <a href="#path" class="hover:text-army-900">学习路径</a>
+        <a href="#resources" class="hover:text-army-900">精选资源</a>
+        <a href="#faq" class="hover:text-army-900">常见问题</a>
+        <a href="https://github.com/hzj-Jeff-07/veteran-ai-nav" target="_blank" rel="noopener" class="px-3 py-1.5 rounded bg-army-800 text-sand-50 hover:bg-army-900 transition">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="relative grid-bg">
+    <div class="max-w-6xl mx-auto px-5 py-20 md:py-28">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-army-100 text-army-800 text-xs stamp mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-army-700"></span>
+        FOR VETERANS · BY VETERAN · 2026
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold text-army-900 leading-tight">
+        退役不退志<br />
+        <span class="text-army-600">从零到 AI,这里有路</span>
+      </h1>
+      <p class="mt-6 text-lg text-army-700 max-w-2xl leading-relaxed">
+        一个为<strong class="text-army-900">退役军人</strong>量身定制的 AI 自学路径图。<br />
+        免费资源优先,反内卷,反割韭菜。<br />
+        <span class="text-sand-500 stamp text-sm">// 由一名退役军人 + 在读专升本学生维护</span>
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#path" class="px-6 py-3 bg-army-800 text-sand-50 rounded-md font-medium hover:bg-army-900 transition shadow-sm">
+          查看 4 阶段路径图 →
+        </a>
+        <a href="#resources" class="px-6 py-3 border-2 border-army-700 text-army-800 rounded-md font-medium hover:bg-army-100 transition">
+          直接看资源
+        </a>
+      </div>
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl">
+        <div>
+          <div class="text-2xl font-bold text-army-900">4</div>
+          <div class="text-xs text-army-600 mt-1">阶段路径</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-army-900">50+</div>
+          <div class="text-xs text-army-600 mt-1">精选资源</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-army-900">100%</div>
+          <div class="text-xs text-army-600 mt-1">免费优先</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold text-army-900">0¥</div>
+          <div class="text-xs text-army-600 mt-1">不卖课</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Path Map -->
+  <section id="path" class="bg-white border-y border-army-100 py-20">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="mb-12">
+        <div class="stamp text-xs text-army-600 mb-2">— LEARNING PATH</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-army-900">4 阶段路径图</h2>
+        <p class="mt-3 text-army-700">从转业第一天到拿到第一份 AI 相关 offer,这条路怎么走。</p>
+      </div>
+
+      <!-- Stages -->
+      <div class="grid md:grid-cols-4 gap-6 md:gap-10">
+        <!-- Stage 1 -->
+        <div class="relative md:stage-line">
+          <div class="bg-army-50 border border-army-200 rounded-lg p-6 h-full">
+            <div class="flex items-center justify-between mb-4">
+              <span class="stamp text-xs text-army-600">STAGE 01</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-army-700 text-sand-50">1-2 月</span>
+            </div>
+            <h3 class="text-lg font-bold text-army-900 mb-2">心态 + 计算机基础</h3>
+            <p class="text-sm text-army-700 mb-4 leading-relaxed">
+              收心、立纪律。装系统、敲命令、看懂程序员说的话。
+            </p>
+            <ul class="text-xs text-army-700 space-y-1.5">
+              <li>• Linux 入门(命令行 / 文件系统)</li>
+              <li>• 计算机网络基本概念</li>
+              <li>• Git / Markdown / 终端</li>
+              <li>• 英语阅读不犯怵</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-army-200 text-xs text-army-600">
+              产出:1 篇 Linux 入门笔记
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="relative md:stage-line">
+          <div class="bg-army-50 border border-army-200 rounded-lg p-6 h-full">
+            <div class="flex items-center justify-between mb-4">
+              <span class="stamp text-xs text-army-600">STAGE 02</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-army-700 text-sand-50">3-6 月</span>
+            </div>
+            <h3 class="text-lg font-bold text-army-900 mb-2">Python 编程筑基</h3>
+            <p class="text-sm text-army-700 mb-4 leading-relaxed">
+              不学 Python 就不要谈 AI。这是绕不开的硬功夫。
+            </p>
+            <ul class="text-xs text-army-700 space-y-1.5">
+              <li>• Python 语法 + 数据结构</li>
+              <li>• 函数、模块、面向对象</li>
+              <li>• requests / pandas 实战</li>
+              <li>• 写 3 个能跑的小项目</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-army-200 text-xs text-army-600">
+              产出:GitHub 上 3 个项目
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="relative md:stage-line">
+          <div class="bg-army-50 border border-army-200 rounded-lg p-6 h-full">
+            <div class="flex items-center justify-between mb-4">
+              <span class="stamp text-xs text-army-600">STAGE 03</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-army-700 text-sand-50">3-6 月</span>
+            </div>
+            <h3 class="text-lg font-bold text-army-900 mb-2">AI 工程化入门</h3>
+            <p class="text-sm text-army-700 mb-4 leading-relaxed">
+              先学怎么用 AI 解决问题,再学背后的数学原理。
+            </p>
+            <ul class="text-xs text-army-700 space-y-1.5">
+              <li>• 大模型 API 调用(Claude / GPT)</li>
+              <li>• Prompt 工程与 RAG</li>
+              <li>• LangChain / 向量数据库</li>
+              <li>• MCP / Agent 工程</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-army-200 text-xs text-army-600">
+              产出:1 个 AI 应用上线
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="relative">
+          <div class="bg-army-800 text-sand-50 rounded-lg p-6 h-full shadow-md">
+            <div class="flex items-center justify-between mb-4">
+              <span class="stamp text-xs text-sand-200">STAGE 04</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-sand-100 text-army-900">长期</span>
+            </div>
+            <h3 class="text-lg font-bold mb-2">AI 安全 / 网络安全</h3>
+            <p class="text-sm text-sand-100 mb-4 leading-relaxed">
+              真正的护城河方向。退役军人的纪律性 + 安全=天然合身。
+            </p>
+            <ul class="text-xs text-sand-100 space-y-1.5">
+              <li>• 网络安全基础(渗透 / 防御)</li>
+              <li>• 大模型安全(Prompt 注入 / 越狱)</li>
+              <li>• Red Team for AI</li>
+              <li>• CTF / HTB 实战</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-army-700 text-xs text-sand-200">
+              目标:进入大厂安全团队
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tip -->
+      <div class="mt-12 bg-sand-100 border-l-4 border-army-600 p-5 rounded-r">
+        <div class="stamp text-xs text-army-700 mb-2">// PRINCIPLE</div>
+        <p class="text-army-900 leading-relaxed">
+          <strong>三件套日最低保命量</strong>:英语 50 词 / 数学或算法 3 题 / 代码 30 行。<br />
+          <span class="text-sm text-army-700">不连续 2 天断 = 复利不归零。先活下去,再谈跑起来。</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources -->
+  <section id="resources" class="py-20">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="mb-10">
+        <div class="stamp text-xs text-army-600 mb-2">— CURATED RESOURCES</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-army-900">精选资源</h2>
+        <p class="mt-3 text-army-700">每条都标了:免费/付费、难度、为什么推荐。共 <span id="resource-count" class="font-bold text-army-900">0</span> 条。</p>
+      </div>
+
+      <!-- Stage Tabs -->
+      <div id="stage-tabs" class="flex flex-wrap gap-2 mb-6">
+        <button data-stage="all" class="stage-tab px-4 py-2 rounded-md text-sm font-medium border border-army-200 bg-white text-army-800 hover:bg-army-50 transition">
+          全部
+        </button>
+        <button data-stage="1" class="stage-tab px-4 py-2 rounded-md text-sm font-medium border border-army-200 bg-white text-army-800 hover:bg-army-50 transition">
+          <span class="stamp text-xs text-army-600 mr-1">01</span>计算机基础
+        </button>
+        <button data-stage="2" class="stage-tab px-4 py-2 rounded-md text-sm font-medium border border-army-200 bg-white text-army-800 hover:bg-army-50 transition">
+          <span class="stamp text-xs text-army-600 mr-1">02</span>Python 筑基
+        </button>
+        <button data-stage="3" class="stage-tab px-4 py-2 rounded-md text-sm font-medium border border-army-200 bg-white text-army-800 hover:bg-army-50 transition">
+          <span class="stamp text-xs text-army-600 mr-1">03</span>AI 工程化
+        </button>
+        <button data-stage="4" class="stage-tab px-4 py-2 rounded-md text-sm font-medium border border-army-200 bg-white text-army-800 hover:bg-army-50 transition">
+          <span class="stamp text-xs text-army-600 mr-1">04</span>AI 安全
+        </button>
+      </div>
+
+      <!-- Type Filter -->
+      <div id="type-filters" class="flex flex-wrap gap-2 mb-8 text-xs">
+        <button data-type="all" class="type-filter px-3 py-1 rounded-full border border-army-200 bg-white text-army-700 hover:bg-army-50 transition">全部类型</button>
+        <button data-type="course" class="type-filter px-3 py-1 rounded-full border border-army-200 bg-white text-army-700 hover:bg-army-50 transition">课程</button>
+        <button data-type="video" class="type-filter px-3 py-1 rounded-full border border-army-200 bg-white text-army-700 hover:bg-army-50 transition">视频</button>
+        <button data-type="book" class="type-filter px-3 py-1 rounded-full border border-army-200 bg-white text-army-700 hover:bg-army-50 transition">书</button>
+        <button data-type="doc" class="type-filter px-3 py-1 rounded-full border border-army-200 bg-white text-army-700 hover:bg-army-50 transition">文档</button>
+        <button data-type="practice" class="type-filter px-3 py-1 rounded-full border border-army-200 bg-white text-army-700 hover:bg-army-50 transition">练习</button>
+        <button data-type="tool" class="type-filter px-3 py-1 rounded-full border border-army-200 bg-white text-army-700 hover:bg-army-50 transition">工具</button>
+        <button data-type="free" class="type-filter px-3 py-1 rounded-full border border-army-600 bg-army-50 text-army-800 hover:bg-army-100 transition">仅免费</button>
+      </div>
+
+      <!-- Resource Grid -->
+      <div id="resource-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- 由 JS 渲染 -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="resource-empty" class="hidden text-center py-16 text-army-600 stamp">
+        // NO RESULTS — 试试切换筛选条件
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-white border-t border-army-100 py-20">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="mb-10">
+        <div class="stamp text-xs text-army-600 mb-2">— FAQ</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-army-900">常见问题</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="bg-army-50 border border-army-100 rounded-lg p-5 group" open>
+          <summary class="font-semibold text-army-900 cursor-pointer flex justify-between items-center">
+            退役没学过编程,真的能转 AI 吗?
+            <span class="text-army-600 group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-army-700 leading-relaxed">
+            能。但请抛弃"3 个月转行年薪 30 万"的幻想,那是培训机构的话术。
+            真实路径是 <strong>1.5-3 年系统学习 + 持续输出作品</strong>。
+            退役军人最大的优势不是 IQ,是<strong>纪律和抗压</strong>——这恰好是大多数自学者最缺的。
+          </p>
+        </details>
+        <details class="bg-army-50 border border-army-100 rounded-lg p-5 group">
+          <summary class="font-semibold text-army-900 cursor-pointer flex justify-between items-center">
+            学历不够,大厂会要吗?
+            <span class="text-army-600 group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-army-700 leading-relaxed">
+            学历是门槛但不是天花板。中小厂可以靠作品集敲门;大厂建议走"专升本 → 考研"路径。
+            退役军人有专升本政策红利,这条路比想象中可行。
+          </p>
+        </details>
+        <details class="bg-army-50 border border-army-100 rounded-lg p-5 group">
+          <summary class="font-semibold text-army-900 cursor-pointer flex justify-between items-center">
+            要不要报某某万元课?
+            <span class="text-army-600 group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-army-700 leading-relaxed">
+            <strong>99% 的情况下:不要</strong>。本站列的免费资源已经覆盖 95% 的学习路径。
+            付费课的真正价值是"陪伴 + 答疑 + 督促",不是知识本身。
+            如果你能死磕主线,你不需要这种陪伴。
+          </p>
+        </details>
+        <details class="bg-army-50 border border-army-100 rounded-lg p-5 group">
+          <summary class="font-semibold text-army-900 cursor-pointer flex justify-between items-center">
+            这个站是谁做的?会持续更新吗?
+            <span class="text-army-600 group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-3 text-sm text-army-700 leading-relaxed">
+            一名 2002 年生的退役军人,目前在成信大读专升本,目标 2027 升入西南科大网络安全方向,
+            2030 考研网络空间安全 / AI 安全。本站是我自己的学习地图,顺便分享。
+            会持续更新,但更新频率服从主线学习——主线优先,内容随心。
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-army-900 text-sand-100 py-12">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-7 h-7 rounded-sm bg-sand-100 text-army-900 grid place-items-center text-xs font-bold stamp">退</span>
+            <span class="font-semibold">退役军人 AI 导航</span>
+          </div>
+          <p class="text-sm text-sand-200 max-w-md leading-relaxed">
+            龙渊归鞘,代码参禅。<br />
+            <span class="stamp text-xs">// 一个不卖课、不收费、不带货的纯学习站</span>
+          </p>
+        </div>
+        <div class="text-sm text-sand-200 stamp">
+          <div>v0.2 · 2026-05-28</div>
+          <div class="mt-1">MIT License</div>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-army-700 text-xs text-sand-200 stamp">
+        本站不构成任何就业或转行承诺。学习路径需结合个人实际调整。
+      </div>
+    </div>
+  </footer>
+
+  <script src="resources.js"></script>
+  <script>
+    (function () {
+      const grid = document.getElementById('resource-grid');
+      const empty = document.getElementById('resource-empty');
+      const countEl = document.getElementById('resource-count');
+      const stageTabs = document.querySelectorAll('.stage-tab');
+      const typeFilters = document.querySelectorAll('.type-filter');
+
+      let activeStage = 'all';
+      let activeType = 'all';
+
+      const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      })[c]);
+
+      function freeBadge(free) {
+        if (free === true) return '<span class="px-1.5 py-0.5 rounded bg-army-100 text-army-800 stamp text-[10px]">FREE</span>';
+        if (free === 'freemium') return '<span class="px-1.5 py-0.5 rounded bg-sand-200 text-army-900 stamp text-[10px]">FREEMIUM</span>';
+        return '<span class="px-1.5 py-0.5 rounded bg-army-700 text-sand-50 stamp text-[10px]">PAID</span>';
+      }
+
+      function langBadge(lang) {
+        return lang === 'zh'
+          ? '<span class="px-1.5 py-0.5 rounded border border-army-300 text-army-700 stamp text-[10px]">中文</span>'
+          : '<span class="px-1.5 py-0.5 rounded border border-army-300 text-army-700 stamp text-[10px]">EN</span>';
+      }
+
+      function levelBadge(level) {
+        const cls = LEVEL_COLOR[level] || 'bg-army-100 text-army-800';
+        return `<span class="px-1.5 py-0.5 rounded ${cls} stamp text-[10px]">${escape(level)}</span>`;
+      }
+
+      function card(r) {
+        return `
+          <a href="${escape(r.url)}" target="_blank" rel="noopener noreferrer"
+             class="group block bg-white border border-army-100 rounded-lg p-5 hover:border-army-600 hover:shadow-md transition">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <h3 class="font-semibold text-army-900 group-hover:text-army-700 leading-snug">${escape(r.name)}</h3>
+              <span class="text-army-400 group-hover:text-army-700 transition shrink-0">↗</span>
+            </div>
+            <p class="text-sm text-army-700 leading-relaxed mb-4">${escape(r.why)}</p>
+            <div class="flex flex-wrap gap-1.5 items-center">
+              <span class="stamp text-[10px] text-army-500">S${STAGE_META[r.stage].code}</span>
+              <span class="text-[10px] text-army-600">·</span>
+              <span class="stamp text-[10px] text-army-600">${escape(TYPE_LABEL[r.type] || r.type)}</span>
+              ${levelBadge(r.level)}
+              ${langBadge(r.lang)}
+              ${freeBadge(r.free)}
+            </div>
+          </a>
+        `;
+      }
+
+      function render() {
+        let list = RESOURCES;
+        if (activeStage !== 'all') list = list.filter(r => r.stage === Number(activeStage));
+        if (activeType === 'free') {
+          list = list.filter(r => r.free === true);
+        } else if (activeType !== 'all') {
+          list = list.filter(r => r.type === activeType);
+        }
+
+        countEl.textContent = list.length;
+
+        if (list.length === 0) {
+          grid.innerHTML = '';
+          empty.classList.remove('hidden');
+          return;
+        }
+        empty.classList.add('hidden');
+        grid.innerHTML = list.map(card).join('');
+      }
+
+      function setActive(buttons, value, attr) {
+        buttons.forEach(b => {
+          const v = b.getAttribute(attr);
+          if (v === value) {
+            b.classList.add('bg-army-800', 'text-sand-50', 'border-army-800');
+            b.classList.remove('bg-white', 'text-army-800', 'text-army-700');
+          } else {
+            b.classList.remove('bg-army-800', 'text-sand-50', 'border-army-800');
+            b.classList.add('bg-white');
+            if (b.classList.contains('stage-tab')) {
+              b.classList.add('text-army-800');
+            } else {
+              b.classList.add('text-army-700');
+            }
+          }
+        });
+      }
+
+      stageTabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeStage = btn.dataset.stage;
+          setActive(stageTabs, activeStage, 'data-stage');
+          render();
+        });
+      });
+
+      typeFilters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeType = btn.dataset.type;
+          setActive(typeFilters, activeType, 'data-type');
+          render();
+        });
+      });
+
+      // 初始化:全部 / 全部
+      setActive(stageTabs, 'all', 'data-stage');
+      setActive(typeFilters, 'all', 'data-type');
+      render();
+    })();
+  </script>
+
+</body>
+</html>

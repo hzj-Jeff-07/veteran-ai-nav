@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hzj-Jeff-07.github.io/veteran-ai-nav/sitemap.xml
