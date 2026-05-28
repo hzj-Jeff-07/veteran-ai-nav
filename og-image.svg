@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f3520"/>
+      <stop offset="1" stop-color="#142318"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(74,107,74,0.18)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Top stripe -->
+  <rect x="0" y="0" width="1200" height="6" fill="#b8a274"/>
+
+  <!-- Stamp badge -->
+  <g transform="translate(80, 90)">
+    <rect width="180" height="32" rx="2" fill="rgba(184,162,116,0.15)" stroke="#b8a274" stroke-width="1"/>
+    <text x="14" y="22" font-family="ui-monospace, Consolas, monospace" font-size="14" letter-spacing="2" fill="#b8a274">FOR VETERANS · 2026</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="80" y="240" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="86" font-weight="800" fill="#faf8f3">退役不退志</text>
+  <text x="80" y="340" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="76" font-weight="700" fill="#b8a274">从零到 AI,这里有路</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="420" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" fill="#e3ebe3">为退役军人量身定制的 AI 自学路径图</text>
+  <text x="80" y="462" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" fill="#e3ebe3">免费资源优先,反内卷,反割韭菜</text>
+
+  <!-- Stats row -->
+  <g transform="translate(80, 530)">
+    <g>
+      <text x="0" y="0" font-family="ui-monospace, monospace" font-size="44" font-weight="700" fill="#faf8f3">4</text>
+      <text x="0" y="24" font-family="ui-monospace, monospace" font-size="14" fill="#b8a274" letter-spacing="2">STAGES</text>
+    </g>
+    <g transform="translate(180, 0)">
+      <text x="0" y="0" font-family="ui-monospace, monospace" font-size="44" font-weight="700" fill="#faf8f3">55+</text>
+      <text x="0" y="24" font-family="ui-monospace, monospace" font-size="14" fill="#b8a274" letter-spacing="2">RESOURCES</text>
+    </g>
+    <g transform="translate(380, 0)">
+      <text x="0" y="0" font-family="ui-monospace, monospace" font-size="44" font-weight="700" fill="#faf8f3">93%</text>
+      <text x="0" y="24" font-family="ui-monospace, monospace" font-size="14" fill="#b8a274" letter-spacing="2">FREE</text>
+    </g>
+    <g transform="translate(580, 0)">
+      <text x="0" y="0" font-family="ui-monospace, monospace" font-size="44" font-weight="700" fill="#faf8f3">0¥</text>
+      <text x="0" y="24" font-family="ui-monospace, monospace" font-size="14" fill="#b8a274" letter-spacing="2">NO COURSE SALE</text>
+    </g>
+  </g>
+
+  <!-- Big stamp -->
+  <g transform="translate(990, 200)">
+    <rect width="140" height="140" rx="6" fill="#b8a274"/>
+    <text x="70" y="108" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="100" font-weight="800" text-anchor="middle" fill="#1f3520">退</text>
+  </g>
+  <text x="990" y="370" font-family="ui-monospace, monospace" font-size="14" letter-spacing="3" fill="#b8a274">// CODE AS PRACTICE</text>
+
+  <!-- Bottom URL -->
+  <text x="80" y="600" font-family="ui-monospace, Consolas, monospace" font-size="18" fill="rgba(184,162,116,0.7)" letter-spacing="1">hzj-jeff-07.github.io/veteran-ai-nav</text>
+</svg>
