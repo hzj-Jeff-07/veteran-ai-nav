@@ -12,7 +12,15 @@
   <meta property="og:description" content="从零到 AI 安全的可信路径图,免费资源优先" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hzj-Jeff-07.github.io/veteran-ai-nav/" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://hzj-jeff-07.github.io/veteran-ai-nav/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="退役军人 AI 学习导航站" />
+  <meta name="twitter:description" content="从零到 AI 安全的可信路径图,免费资源优先" />
+  <meta name="twitter:image" content="https://hzj-jeff-07.github.io/veteran-ai-nav/og-image.png" />
   <link rel="canonical" href="https://hzj-Jeff-07.github.io/veteran-ai-nav/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
@@ -82,11 +90,14 @@
         <span class="w-7 h-7 rounded-sm bg-army-700 text-sand-50 grid place-items-center text-xs font-bold stamp">退</span>
         <span class="font-semibold text-army-800">退役军人 AI 导航</span>
       </a>
-      <nav class="hidden md:flex items-center gap-7 text-sm text-army-700">
-        <a href="#path" class="hover:text-army-900">学习路径</a>
-        <a href="#resources" class="hover:text-army-900">精选资源</a>
-        <a href="#faq" class="hover:text-army-900">常见问题</a>
-        <a href="https://github.com/hzj-Jeff-07/veteran-ai-nav" target="_blank" rel="noopener" class="px-3 py-1.5 rounded bg-army-800 text-sand-50 hover:bg-army-900 transition">GitHub</a>
+      <nav class="flex items-center gap-4 md:gap-7 text-sm text-army-700">
+        <a href="#path" class="hidden md:inline hover:text-army-900">学习路径</a>
+        <a href="#resources" class="hidden md:inline hover:text-army-900">精选资源</a>
+        <a href="#faq" class="hidden md:inline hover:text-army-900">常见问题</a>
+        <a href="https://github.com/hzj-Jeff-07/veteran-ai-nav" target="_blank" rel="noopener" aria-label="GitHub 仓库" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-army-800 text-sand-50 hover:bg-army-900 transition">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span>GitHub</span>
+        </a>
       </nav>
     </div>
   </header>
@@ -260,6 +271,22 @@
         <p class="mt-3 text-army-700">每条都标了:免费/付费、难度、为什么推荐。共 <span id="resource-count" class="font-bold text-army-900">0</span> 条。</p>
       </div>
 
+      <!-- Search Box -->
+      <div class="mb-5">
+        <div class="relative max-w-md">
+          <input
+            id="resource-search"
+            type="search"
+            placeholder="搜索资源名称或描述... (如:Python / OWASP / 渗透)"
+            aria-label="搜索资源"
+            class="w-full px-4 py-2.5 pl-10 text-sm border border-army-200 rounded-md bg-white text-army-900 placeholder:text-army-500 focus:outline-none focus:border-army-700 focus:ring-1 focus:ring-army-700"
+          />
+          <svg class="absolute left-3 top-3 w-4 h-4 text-army-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+          </svg>
+        </div>
+      </div>
+
       <!-- Stage Tabs -->
       <div id="stage-tabs" class="flex flex-wrap gap-2 mb-6">
         <button data-stage="all" class="stage-tab px-4 py-2 rounded-md text-sm font-medium border border-army-200 bg-white text-army-800 hover:bg-army-50 transition">
@@ -392,9 +419,11 @@
       const countEl = document.getElementById('resource-count');
       const stageTabs = document.querySelectorAll('.stage-tab');
       const typeFilters = document.querySelectorAll('.type-filter');
+      const searchInput = document.getElementById('resource-search');
 
       let activeStage = 'all';
       let activeType = 'all';
+      let searchQuery = '';
 
       const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -446,6 +475,13 @@
         } else if (activeType !== 'all') {
           list = list.filter(r => r.type === activeType);
         }
+        if (searchQuery) {
+          const q = searchQuery.toLowerCase();
+          list = list.filter(r =>
+            r.name.toLowerCase().includes(q) ||
+            r.why.toLowerCase().includes(q)
+          );
+        }
 
         countEl.textContent = list.length;
 
@@ -490,6 +526,11 @@
           setActive(typeFilters, activeType, 'data-type');
           render();
         });
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim();
+        render();
       });
 
       // 初始化:全部 / 全部
